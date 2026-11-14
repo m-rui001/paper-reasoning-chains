@@ -13,6 +13,10 @@
 
 本仓库不包含论文 PDF、全文抽取文本、输入队列或 JSON 数据文件。SHA-1 文件名只用于关联工作流记录，不代表内容校验或论文质量背书。
 
+## 质量门槛
+
+`python scripts/validate.py` 重新扫描 `papers/` 并重写 `MANIFEST.csv`，退出码即门槛结果。硬缺陷只包括空文件、正文 < 400 字符、无 H1、U+FFFD 占比 > 2%、内容完全重复和非法编码；当前 1,824 篇全部通过，无重复、无删除。276 篇页眉缺少 DOI/arXiv/URL 来源标识，属于提示级缺陷，保留并在 `MANIFEST.csv` 的 `defect` 列标注。质量分级与缺陷分布见 `QUALITY.md`；`REJECTED.csv` 为空。
+
 ## 生成笔记
 
 使用 Python 3.10 或更新版本。将论文提取文本放入 `out/txt/<sha>.txt`，或按 `prepare_inputs.py` 生成器预期放入 `out/in/`，然后设置 Ark API 环境变量：
