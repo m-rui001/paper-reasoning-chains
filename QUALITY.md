@@ -1,7 +1,7 @@
 # 质量报告：paper-reasoning-chains
 
 本文件由 `python scripts/validate.py --quality` 生成，所有数字来自脚本扫描。
-硬门槛与删除标准见 `D:\mxrlib\_tools\QUALITY_STANDARD.md`。
+硬门槛与删除标准见 `scripts/QUALITY_STANDARD.md`。
 
 ## 现状计数
 
@@ -9,10 +9,10 @@
 | --- | --- |
 | Markdown 文件 | 1824 |
 | catalog 记录 | 无（从文档头派生） |
-| 总字符数 | 9315496 |
-| 最短 / 中位 / 最长（字符） | 637 / 4946 / 13449 |
-| quality=ok | 1512 |
-| quality=low | 312 |
+| 总字符数 | 9188074 |
+| 最短 / 中位 / 最长（字符） | 544 / 4878 / 13333 |
+| quality=ok | 1514 |
+| quality=low | 310 |
 | quality=bad | 0 |
 | catalog/正文身份冲突 | 0 |
 | 年份仅差 1 年（保留 catalog 年份） | 0 |
@@ -24,8 +24,7 @@
 | --- | --- |
 | no_source | 276 |
 | no_h2 | 33 |
-| short_body | 26 |
-| trailing_provenance | 14 |
+| short_body | 27 |
 
 ## 删除记录
 
@@ -41,8 +40,8 @@
 ## 未解决项
 
 - `no_h2`：33 篇，保留并标记（不可确定性修复或证据不足）。
+- `short_body`：27 篇，保留并标记（不可确定性修复或证据不足）。
 - `no_source`：276 篇，保留并标记（不可确定性修复或证据不足）。
-- `short_body`：26 篇，保留并标记（不可确定性修复或证据不足）。
 
 ## 重跑命令
 

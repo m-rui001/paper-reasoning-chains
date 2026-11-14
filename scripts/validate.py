@@ -912,7 +912,7 @@ def write_quality(docs, catalog, rows_before=None):
         f"# 质量报告：{REPO}",
         "",
         "本文件由 `python scripts/validate.py --quality` 生成，所有数字来自脚本扫描。",
-        "硬门槛与删除标准见 `D:\\mxrlib\\_tools\\QUALITY_STANDARD.md`。",
+        "硬门槛与删除标准见 `scripts/QUALITY_STANDARD.md`。",
         "",
         "## 现状计数",
         "",
@@ -1028,8 +1028,10 @@ def stratified_sample(docs, n=32):
 
 
 def run_sample(docs, n):
-    sys.path.insert(0, r"D:\mxrlib\_tools")
-    import dm
+    try:
+        import dm
+    except ImportError:
+        sys.exit("--sample 需要 dm.py（决策模型客户端）在 scripts/ 或 PYTHONPATH 中。")
     sample = stratified_sample([d for d in docs if d["chars"] > 0], n)
     questions = {
         "readable": {"type": "choice", "criteria": {
